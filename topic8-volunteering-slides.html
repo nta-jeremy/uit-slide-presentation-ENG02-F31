@@ -1,0 +1,1089 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Importance of Volunteering in the Community — ENG02 F31</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ============================================================
+   Palette anchored to the illustration set:
+   navy #16265c · teal #0f8f99 · orange #ee6c1f · gold #f5b420
+   ============================================================ */
+    :root {
+      --font-display: 'Bricolage Grotesque', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+      --bg: #fdf7ef;
+      --bg2: #f7eee1;
+      --surface: #ffffff;
+      --surface2: #fbf3e8;
+      --border: rgba(22, 38, 92, .10);
+      --border-bright: rgba(22, 38, 92, .20);
+      --text: #16265c;
+      --text-dim: #6b7398;
+      --accent: #ee6c1f;
+      --accent2: #0f8f99;
+      --gold: #e0a012;
+      --accent-dim: rgba(238, 108, 31, .10);
+      --shadow: 0 18px 44px -22px rgba(22, 38, 92, .45);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0e1430;
+        --bg2: #141c40;
+        --surface: #1a2350;
+        --surface2: #202a5e;
+        --border: rgba(180, 200, 255, .13);
+        --border-bright: rgba(180, 200, 255, .28);
+        --text: #e7ecff;
+        --text-dim: #9aa4cc;
+        --accent: #ff8a42;
+        --accent2: #3bc0c9;
+        --gold: #f5b420;
+        --accent-dim: rgba(255, 138, 66, .13);
+        --shadow: 0 18px 44px -20px rgba(0, 0, 0, .7);
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #0e1430;
+      --bg2: #141c40;
+      --surface: #1a2350;
+      --surface2: #202a5e;
+      --border: rgba(180, 200, 255, .13);
+      --border-bright: rgba(180, 200, 255, .28);
+      --text: #e7ecff;
+      --text-dim: #9aa4cc;
+      --accent: #ff8a42;
+      --accent2: #3bc0c9;
+      --gold: #f5b420;
+      --accent-dim: rgba(255, 138, 66, .13);
+      --shadow: 0 18px 44px -20px rgba(0, 0, 0, .7);
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- deck engine ---------- */
+    .deck {
+      height: 100dvh;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+      -webkit-overflow-scrolling: touch
+    }
+
+    .slide {
+      height: 100dvh;
+      scroll-snap-align: start;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(28px, 5.5vh, 64px) clamp(28px, 6vw, 96px);
+      isolation: isolate;
+    }
+
+    /* alternating grounds so the sequence breathes */
+    .slide:nth-child(even) {
+      background: var(--bg2)
+    }
+
+    .slide--dark {
+      background: var(--text);
+      color: var(--bg)
+    }
+
+    .slide--dark .eyebrow {
+      color: rgba(255, 255, 255, .62)
+    }
+
+    .slide--dark .lede {
+      color: rgba(255, 255, 255, .82)
+    }
+
+    /* ---------- typography ---------- */
+    .display {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 5.6vw, 76px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: .98;
+      margin: .18em 0 .32em;
+      text-wrap: balance;
+    }
+
+    .display em {
+      font-style: normal;
+      color: var(--accent);
+      position: relative
+    }
+
+    .heading {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 800;
+      letter-spacing: -1.4px;
+      line-height: 1.04;
+      margin: .1em 0 .5em;
+      text-wrap: balance;
+    }
+
+    .lede {
+      font-size: clamp(15px, 1.55vw, 21px);
+      line-height: 1.55;
+      color: var(--text-dim);
+      max-width: 56ch;
+      text-wrap: pretty;
+      margin: 0 0 1.1em
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: clamp(10px, 1.05vw, 13px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0;
+    }
+
+    .eyebrow .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex: none
+    }
+
+    .eyebrow .dot--teal {
+      background: var(--accent2)
+    }
+
+    .eyebrow .dot--gold {
+      background: var(--gold)
+    }
+
+    /* ---------- layout primitives ---------- */
+    .split {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(24px, 4vw, 68px);
+      align-items: center
+    }
+
+    .split--flip {
+      grid-template-columns: .95fr 1.05fr
+    }
+
+    .split--tall {
+      grid-template-columns: 1.25fr .75fr
+    }
+
+    /* artwork always sits on white — the illustrations have white grounds */
+    .art {
+      margin: 0;
+      background: #fff;
+      border-radius: 20px;
+      padding: 10px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .art img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 66vh;
+      object-fit: contain;
+      border-radius: 12px
+    }
+
+    .art--tall img {
+      max-height: 74vh
+    }
+
+    .art--wide img {
+      max-height: 52vh
+    }
+
+    .art--sm img {
+      max-height: 26vh
+    }
+
+    .art--tilt {
+      transform: rotate(-1.4deg)
+    }
+
+    .art--tilt2 {
+      transform: rotate(1.2deg)
+    }
+
+    /* ---------- point lists ---------- */
+    .points {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(10px, 1.6vh, 18px)
+    }
+
+    .points li {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 14px;
+      align-items: start;
+      font-size: clamp(14px, 1.5vw, 20px);
+      line-height: 1.45;
+    }
+
+    .points li b {
+      display: block;
+      font-weight: 700;
+      font-size: clamp(15px, 1.65vw, 22px);
+      margin-bottom: 2px
+    }
+
+    .points li span.n {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border-radius: 8px;
+      height: 28px;
+      width: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 3px;
+    }
+
+    .points li p {
+      margin: 0;
+      color: var(--text-dim);
+      font-size: clamp(13px, 1.28vw, 17px);
+      line-height: 1.5
+    }
+
+    .points--teal li span.n {
+      color: var(--accent2);
+      background: rgba(15, 143, 153, .12)
+    }
+
+    /* ---------- triptych (activities) ---------- */
+    .trio {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(14px, 2vw, 28px);
+      align-items: stretch
+    }
+
+    .trio-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 12px 12px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .trio-card:nth-child(2) {
+      transform: translateY(-14px)
+    }
+
+    .trio-card .art {
+      box-shadow: none;
+      border-radius: 12px;
+      padding: 0;
+      border: none
+    }
+
+    .trio-card .art img {
+      max-height: 22vh;
+      border-radius: 12px
+    }
+
+    .trio-card h3 {
+      font-family: var(--font-display);
+      font-size: clamp(17px, 1.9vw, 26px);
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: -.5px;
+      padding: 0 8px
+    }
+
+    .trio-card p {
+      margin: 0;
+      color: var(--text-dim);
+      font-size: clamp(12px, 1.15vw, 15.5px);
+      line-height: 1.5;
+      padding: 0 8px
+    }
+
+    .trio-card .tag {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--accent2);
+      padding: 0 8px;
+    }
+
+    .trio-card:nth-child(2) .tag {
+      color: var(--accent)
+    }
+
+    .trio-card:nth-child(3) .tag {
+      color: var(--gold)
+    }
+
+    /* ---------- opportunity cards ---------- */
+    .opps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(12px, 1.6vw, 20px)
+    }
+
+    .opp {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent2);
+      border-radius: 14px;
+      padding: clamp(14px, 1.8vw, 22px);
+    }
+
+    .opp:nth-child(2) {
+      border-left-color: var(--accent)
+    }
+
+    .opp:nth-child(3) {
+      border-left-color: var(--gold)
+    }
+
+    .opp h3 {
+      font-family: var(--font-display);
+      font-size: clamp(16px, 1.7vw, 23px);
+      font-weight: 800;
+      margin: 0 0 6px;
+      letter-spacing: -.4px
+    }
+
+    .opp p {
+      margin: 0;
+      color: var(--text-dim);
+      font-size: clamp(12.5px, 1.2vw, 16px);
+      line-height: 1.5
+    }
+
+    .opp .who {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      display: block;
+      margin-bottom: 8px
+    }
+
+    /* ---------- members ---------- */
+    .members {
+      list-style: none;
+      margin: 14px 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px 14px;
+      max-width: 700px
+    }
+
+    .members li {
+      font-family: var(--font-mono);
+      font-size: clamp(10.5px, 1.05vw, 13px);
+      color: var(--text-dim);
+      border-top: 1px solid var(--border);
+      padding-top: 7px;
+      line-height: 1.35;
+    }
+
+    .members li b {
+      display: block;
+      font-family: var(--font-body);
+      font-size: clamp(12.5px, 1.2vw, 15px);
+      color: var(--text);
+      font-weight: 700
+    }
+
+    /* ---------- misc blocks ---------- */
+    .hook {
+      border-left: 3px solid var(--gold);
+      padding: 2px 0 2px 18px;
+      margin: 0 0 20px;
+      font-family: var(--font-display);
+      font-size: clamp(17px, 2vw, 27px);
+      font-weight: 600;
+      line-height: 1.28;
+      letter-spacing: -.5px;
+    }
+
+    .stat-row {
+      display: flex;
+      gap: clamp(18px, 3vw, 44px);
+      flex-wrap: wrap;
+      margin-top: 6px
+    }
+
+    .stat {
+      border-top: 2px solid var(--accent);
+      padding-top: 10px;
+      min-width: 130px
+    }
+
+    .stat b {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.6vw, 50px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -2px
+    }
+
+    .stat span {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--text-dim)
+    }
+
+    .stat:nth-child(2) {
+      border-top-color: var(--accent2)
+    }
+
+    .stat:nth-child(3) {
+      border-top-color: var(--gold)
+    }
+
+    .story {
+      display: flex;
+      flex-direction: column;
+      gap: 14px
+    }
+
+    .story-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: baseline
+    }
+
+    .story-step .k {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+      padding-top: 4px
+    }
+
+    .story-step p {
+      margin: 0;
+      font-size: clamp(14px, 1.45vw, 19px);
+      line-height: 1.5
+    }
+
+    .story-step:nth-child(2) .k {
+      color: var(--accent2)
+    }
+
+    .story-step:nth-child(3) .k {
+      color: var(--gold)
+    }
+
+    .cta {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(20px, 2.6vw, 38px);
+      letter-spacing: -1px;
+      line-height: 1.15;
+      background: var(--accent);
+      color: #fff;
+      padding: .4em .7em;
+      border-radius: 14px;
+      margin-top: 6px;
+    }
+
+    .fill {
+      color: var(--accent);
+      border-bottom: 2px dashed var(--accent);
+      padding-bottom: 1px
+    }
+
+
+    /* ---------- fixed chrome ---------- */
+    .deck-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .3s ease;
+      pointer-events: none
+    }
+
+    .deck-dots {
+      position: fixed;
+      right: clamp(10px, 1.6vw, 20px);
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 100;
+      background: color-mix(in srgb, var(--bg) 70%, transparent);
+      padding: 7px 5px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px)
+    }
+
+    .deck-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--text-dim);
+      opacity: .32;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: opacity .2s, transform .2s
+    }
+
+    .deck-dot:hover {
+      opacity: .65
+    }
+
+    .deck-dot.active {
+      opacity: 1;
+      transform: scale(1.55);
+      background: var(--accent)
+    }
+
+    .deck-counter {
+      position: fixed;
+      bottom: clamp(10px, 2vh, 20px);
+      right: clamp(12px, 2vw, 22px);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-dim);
+      z-index: 100;
+      font-variant-numeric: tabular-nums
+    }
+
+    .deck-hints {
+      position: fixed;
+      bottom: clamp(10px, 2vh, 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      opacity: .6;
+      z-index: 100;
+      transition: opacity .5s;
+      white-space: nowrap
+    }
+
+    .deck-hints.faded {
+      opacity: 0;
+      pointer-events: none
+    }
+
+    .tools {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 300;
+      display: flex;
+      gap: 8px
+    }
+
+    .tool-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-dim);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      transition: background .15s, color .15s;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .06);
+    }
+
+    .tool-btn:hover {
+      background: var(--surface2);
+      color: var(--text)
+    }
+
+    .tool-btn.off {
+      opacity: .45
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width:900px) {
+
+      .split,
+      .split--flip,
+      .split--tall {
+        grid-template-columns: 1fr;
+        gap: 20px
+      }
+
+      .trio,
+      .opps {
+        grid-template-columns: 1fr;
+        gap: 12px
+      }
+
+      .trio-card:nth-child(2) {
+        transform: none
+      }
+
+      .trio-card .art img {
+        max-height: 15vh
+      }
+
+      .members {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .slide {
+        justify-content: flex-start;
+        overflow-y: auto;
+        padding-top: 56px
+      }
+
+      .deck-hints {
+        display: none
+      }
+
+      .art img {
+        max-height: 34vh
+      }
+    }
+
+    /* ---------- print / PDF export ---------- */
+    @media print {
+
+      .tools,
+      .deck-dots,
+      .deck-counter,
+      .deck-hints,
+      .deck-progress {
+        display: none !important
+      }
+
+      .deck {
+        height: auto;
+        overflow: visible
+      }
+
+      .slide {
+        height: auto;
+        min-height: auto;
+        page-break-after: always;
+        break-after: page;
+        padding: 24px 30px
+      }
+
+      .art img {
+        max-height: 9cm
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="tools">
+    <button class="tool-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle light/dark theme"></button>
+  </div>
+
+  <div class="deck">
+
+    <!-- 1 · TITLE -->
+    <section class="slide slide--title">
+      <div class="split split--tall">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>ENG02 — Class F31 · Topic 8</p>
+          <h1 class="display">The Importance of <em>Volunteering</em> in the Community</h1>
+          <p class="lede">A short look at what volunteering is, what it gives back — to the person who gives and to the
+            place they live in — and how to start locally.</p>
+          <ul class="members">
+            <li><b>Nguyễn Tùng Anh</b>26730006 · Intro &amp; framing</li>
+            <li><b>Trần Minh Hiếu</b>26730021 · Personal benefits</li>
+            <li><b>Bùi Tuấn Huy</b>26730025 · Community impact</li>
+            <li><b>Nguyễn Văn Khánh</b>26730033 · Activities</li>
+            <li><b>Lê Duy Khương</b>26730036 · Experience</li>
+            <li><b>Nguyễn Trọng Khương</b>26730037 · Local &amp; wrap-up</li>
+          </ul>
+        </div>
+        <figure class="art art--tall art--tilt"><img src="images/01.png"
+            alt="Volunteers of different ages planting a tree together"></figure>
+      </div>
+    </section>
+
+    <!-- 2 · INTRODUCTION -->
+    <section class="slide">
+      <div class="split split--flip">
+        <figure class="art art--wide art--tilt2"><img src="images/02.png"
+            alt="Two hands forming a heart shape around a family, a lightbulb and a globe"></figure>
+        <div>
+          <p class="eyebrow"><span class="dot dot--teal"></span>01 · Introduction</p>
+          <h2 class="heading">Giving time, not money</h2>
+          <p class="hook">If everyone in this room gave just two hours a month — what would our campus look like in a
+            year?</p>
+          <ul class="points points--teal">
+            <li><span class="n">A</span>
+              <div><b>What it is</b>
+                <p>Volunteering means giving your time and effort to help others, with no payment expected in return.
+                </p>
+              </div>
+            </li>
+            <li><span class="n">B</span>
+              <div><b>Why it matters to you</b>
+                <p>It builds character, practical skills and real connections — things a classroom alone cannot give.
+                </p>
+              </div>
+            </li>
+            <li><span class="n">C</span>
+              <div><b>Why it matters to society</b>
+                <p>It fills the gaps that governments and businesses cannot reach, and it keeps social bonds strong.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · PERSONAL BENEFITS -->
+    <section class="slide">
+      <div class="split">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>02 · Benefits — Personal</p>
+          <h2 class="heading">What you take home</h2>
+          <ul class="points">
+            <li><span class="n">01</span>
+              <div><b>New skills</b>
+                <p>Communication, leadership, teamwork — learned by doing, under real pressure.</p>
+              </div>
+            </li>
+            <li><span class="n">02</span>
+              <div><b>A wider network</b>
+                <p>You meet people outside your usual circle: other students, staff, locals, professionals.</p>
+              </div>
+            </li>
+            <li><span class="n">03</span>
+              <div><b>Better mental health</b>
+                <p>Helping others creates a sense of purpose and lowers stress — you feel useful.</p>
+              </div>
+            </li>
+            <li><span class="n">04</span>
+              <div><b>A stronger CV</b>
+                <p>Employers read volunteering as proof of initiative, not just as a line to fill space.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <figure class="art art--tall"><img src="images/03.png"
+            alt="A student surrounded by icons of handshake, ideas, friends and growth"></figure>
+      </div>
+    </section>
+
+    <!-- 4 · COMMUNITY IMPACT -->
+    <section class="slide">
+      <div class="split split--flip">
+        <figure class="art art--wide art--tilt"><img src="images/04.png"
+            alt="A handshake over a city skyline with connected homes"></figure>
+        <div>
+          <p class="eyebrow"><span class="dot dot--teal"></span>03 · Benefits — Community</p>
+          <h2 class="heading">What the community gains</h2>
+          <ul class="points points--teal">
+            <li><span class="n">01</span>
+              <div><b>Direct help for people in need</b>
+                <p>Food, clothes, tutoring, care — support that reaches someone this week, not next year.</p>
+              </div>
+            </li>
+            <li><span class="n">02</span>
+              <div><b>Pressure on real social problems</b>
+                <p>Poverty, the environment, unequal access to education — volunteers keep these visible.</p>
+              </div>
+            </li>
+            <li><span class="n">03</span>
+              <div><b>A community that holds together</b>
+                <p>People who work side by side start to trust each other. That trust is the safety net.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · POPULAR ACTIVITIES -->
+    <section class="slide">
+      <p class="eyebrow"><span class="dot dot--gold"></span>04 · Popular volunteer activities</p>
+      <h2 class="heading">Three ways people actually start</h2>
+      <div class="trio">
+        <div class="trio-card">
+          <figure class="art"><img src="images/05a.png" alt="Hands placing food into a donation box"></figure>
+          <span class="tag">Food drives</span>
+          <h3>Collect &amp; share food</h3>
+          <p>Gather donations and hand them out to families, shelters or workers who need them.</p>
+        </div>
+        <div class="trio-card">
+          <figure class="art"><img src="images/05b.png" alt="A volunteer picking up litter on a beach"></figure>
+          <span class="tag">Clean-ups</span>
+          <h3>Clean a shared space</h3>
+          <p>Beaches, parks, canals, campus. Low barrier, visible result, easy to do as a group.</p>
+        </div>
+        <div class="trio-card">
+          <figure class="art"><img src="images/05c.png" alt="A student tutoring a younger child with a book"></figure>
+          <span class="tag">Tutoring</span>
+          <h3>Teach what you know</h3>
+          <p>Free lessons for children and students who cannot afford extra classes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · PERSONAL EXPERIENCE -->
+    <section class="slide">
+      <div class="split">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>05 · Personal experience</p>
+          <h2 class="heading">One afternoon, one story</h2>
+          <div class="story">
+            <div class="story-step"><span class="k">What I did</span>
+              <p><span class="fill">[ the activity — where, with whom, how long ]</span></p>
+            </div>
+            <div class="story-step"><span class="k">How it felt</span>
+              <p><span class="fill">[ one honest moment — awkward, tiring, surprising ]</span></p>
+            </div>
+            <div class="story-step"><span class="k">What changed</span>
+              <p><span class="fill">[ what you kept afterwards — a skill, a friend, a habit ]</span></p>
+            </div>
+          </div>
+          <p class="lede" style="margin-top:22px">No experience yet? Use a real organisation instead — Habitat for
+            Humanity, Operation Smile, or a campaign your own university runs.</p>
+        </div>
+        <figure class="art art--wide art--tilt2"><img src="images/06.png"
+            alt="A volunteer handing a food bag to a woman at a community stall"></figure>
+      </div>
+    </section>
+
+    <!-- 7 · LOCAL OPPORTUNITIES -->
+    <section class="slide">
+      <div class="split split--flip" style="margin-bottom:clamp(14px,2.4vh,26px)">
+        <figure class="art art--wide"><img src="images/07.png"
+            alt="Students reading a notice board in front of a community centre"></figure>
+        <div>
+          <p class="eyebrow"><span class="dot dot--teal"></span>06 · Local opportunities</p>
+          <h2 class="heading">Where to sign up, near you</h2>
+          <p class="lede">You do not have to look far. Most of these run every year and are always short of hands.</p>
+        </div>
+      </div>
+      <div class="opps">
+        <div class="opp"><span class="who">On campus</span>
+          <h3>Youth Union &amp; Student Association</h3>
+          <p>The usual entry point: they organise most student volunteer work and announce it first.</p>
+        </div>
+        <div class="opp"><span class="who">Summer</span>
+          <h3>Green Summer <em>(Mùa hè xanh)</em></h3>
+          <p>The long-running student campaign — building, teaching and community work in rural areas.</p>
+        </div>
+        <div class="opp"><span class="who">Before Tet</span>
+          <h3>Volunteer Spring <em>(Xuân tình nguyện)</em></h3>
+          <p>Gifts, meals and events for families and workers who stay in the city over the holiday.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · CONCLUSION -->
+    <section class="slide">
+      <div class="split split--tall">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>07 · Conclusion</p>
+          <h2 class="heading">It works in both directions</h2>
+          <div class="stat-row">
+            <div class="stat"><b>You</b><span>grow — skills, people, purpose</span></div>
+            <div class="stat"><b>Them</b><span>get help that arrives now</span></div>
+            <div class="stat"><b>Us</b><span>end up in a stronger community</span></div>
+          </div>
+          <p class="lede" style="margin-top:26px">Volunteering is not charity handed down from above. It is two people
+            ending up better off than before.</p>
+          <span class="cta">Pick one afternoon. Start there.</span>
+        </div>
+        <figure class="art art--tall art--tilt"><img src="images/08.png"
+            alt="Many hands joined together around a growing seedling"></figure>
+      </div>
+    </section>
+
+    <!-- 9 · THANK YOU / Q&A -->
+    <section class="slide">
+      <div class="split split--flip">
+        <figure class="art art--tall art--tilt2"><img src="images/09.png"
+            alt="A smiling student waving, with a question mark and heart"></figure>
+        <div>
+          <p class="eyebrow"><span class="dot dot--gold"></span>Thank you</p>
+          <h2 class="display">Thank you<br>for listening.</h2>
+          <p class="lede">We are happy to take your questions.</p>
+          <ul class="members" style="max-width:520px">
+            <li><b>Group</b>08 - ENG02.F31</li>
+            <li><b>Topic</b>No. 8 — Volunteering</li>
+            <li><b>Members</b>6 presenters</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    /* theme toggle */
+    (function () {
+      var toggle = document.getElementById('themeToggle');
+      var saved = localStorage.getItem('theme');
+      var initial = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (saved) document.documentElement.setAttribute('data-theme', initial);
+      toggle.textContent = initial === 'dark' ? '☀' : '☾';
+      toggle.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        var next = current === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        toggle.textContent = next === 'dark' ? '☀' : '☾';
+      });
+    })();
+
+
+    /* slide engine */
+    class SlideEngine {
+      constructor() {
+        this.deck = document.querySelector('.deck');
+        this.slides = [...document.querySelectorAll('.slide')];
+        this.current = 0; this.total = this.slides.length;
+        this.locked = false; this.lockTimer = null;
+        this.buildChrome(); this.bindEvents(); this.update();
+      }
+      buildChrome() {
+        var bar = document.createElement('div'); bar.className = 'deck-progress'; document.body.appendChild(bar); this.bar = bar;
+        var dots = document.createElement('div'); dots.className = 'deck-dots'; var self = this;
+        this.slides.forEach(function (_, i) {
+          var d = document.createElement('button'); d.className = 'deck-dot'; d.title = 'Slide ' + (i + 1);
+          d.onclick = function () { self.goTo(i); }; dots.appendChild(d);
+        });
+        document.body.appendChild(dots); this.dots = [].slice.call(dots.children);
+        var ctr = document.createElement('div'); ctr.className = 'deck-counter'; document.body.appendChild(ctr); this.counter = ctr;
+        var hints = document.createElement('div'); hints.className = 'deck-hints';
+        hints.textContent = '← → navigate  ·  Ctrl/Cmd+P export PDF';
+        document.body.appendChild(hints); this.hints = hints;
+        this.hintTimer = setTimeout(function () { hints.classList.add('faded'); }, 5000);
+      }
+      bindEvents() {
+        var self = this;
+        document.addEventListener('keydown', function (e) {
+          if (e.target.closest('input,textarea,[contenteditable]')) return;
+          if (['ArrowDown', 'ArrowRight', ' ', 'PageDown'].includes(e.key)) { e.preventDefault(); self.next(); }
+          else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); self.prev(); }
+          else if (e.key === 'Home') { e.preventDefault(); self.goTo(0); }
+          else if (e.key === 'End') { e.preventDefault(); self.goTo(self.total - 1); }
+          self.fadeHints();
+        });
+        this.deck.addEventListener('scroll', function () {
+          clearTimeout(self.settleTimer);
+          self.settleTimer = setTimeout(function () {
+            if (self.locked) return;
+            var i = Math.round(self.deck.scrollTop / self.deck.clientHeight);
+            i = Math.max(0, Math.min(i, self.total - 1));
+            if (i !== self.current) { self.current = i; self.update(); }
+          }, 120);
+        }, { passive: true });
+
+        var touchY;
+        this.deck.addEventListener('touchstart', function (e) { touchY = e.touches[0].clientY; }, { passive: true });
+        this.deck.addEventListener('touchend', function (e) {
+          var dy = touchY - e.changedTouches[0].clientY;
+          if (Math.abs(dy) > 50) { dy > 0 ? self.next() : self.prev(); }
+        });
+      }
+      goTo(i) {
+        var t = Math.max(0, Math.min(i, this.total - 1));
+        var self = this, deck = this.deck;
+        this.current = t;
+        this.locked = true;
+        // snapping fights a scripted scroll, so suspend it for the write
+        deck.style.scrollSnapType = 'none';
+        deck.scrollTop = t * deck.clientHeight;
+        void deck.offsetHeight;
+        deck.style.scrollSnapType = '';
+        this.update();
+        clearTimeout(this.lockTimer);
+        this.lockTimer = setTimeout(function () { self.locked = false; }, 120);
+      }
+      next() { if (this.current < this.total - 1) this.goTo(this.current + 1); }
+      prev() { if (this.current > 0) this.goTo(this.current - 1); }
+      update() {
+        this.bar.style.width = ((this.current + 1) / this.total * 100) + '%';
+        var self = this;
+        this.dots.forEach(function (d, i) { d.classList.toggle('active', i === self.current); });
+        this.counter.textContent = (this.current + 1) + ' / ' + this.total;
+      }
+      fadeHints() { clearTimeout(this.hintTimer); this.hints.classList.add('faded'); }
+    }
+    document.addEventListener('DOMContentLoaded', function () { new SlideEngine(); });
+  </script>
+</body>
+
+</html>
